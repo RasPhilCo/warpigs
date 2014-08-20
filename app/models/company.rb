@@ -5,4 +5,5 @@ class Company < ActiveRecord::Base
   has_many :profits, as: :profitable
   has_many :company_positions
   has_many :positions, through: :company_positions
+  has_many :worths, as: :worthable
 end

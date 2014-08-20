@@ -5,4 +5,5 @@ class Person < ActiveRecord::Base
   belongs_to :country
   has_many :company_people
   has_many :companies, through: :company_people
+  has_many :worths, as: :worthable
 end

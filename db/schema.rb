@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819010008) do
+ActiveRecord::Schema.define(version: 20140820042311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20140819010008) do
 
   add_index "citation_profits", ["citation_id"], name: "index_citation_profits_on_citation_id", using: :btree
   add_index "citation_profits", ["profit_id"], name: "index_citation_profits_on_profit_id", using: :btree
+
+  create_table "citation_worths", force: true do |t|
+    t.integer  "citation_id"
+    t.integer  "worth_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "citation_worths", ["worth_id"], name: "index_citation_worths_on_worth_id", using: :btree
 
   create_table "citations", force: true do |t|
     t.string   "url"
@@ -144,5 +153,17 @@ ActiveRecord::Schema.define(version: 20140819010008) do
   end
 
   add_index "wars", ["name"], name: "index_wars_on_name", using: :btree
+
+  create_table "worths", force: true do |t|
+    t.integer  "value"
+    t.date     "date"
+    t.integer  "worthable_id"
+    t.string   "worthable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "worths", ["worthable_id"], name: "index_worths_on_worthable_id", using: :btree
+  add_index "worths", ["worthable_type"], name: "index_worths_on_worthable_type", using: :btree
 
 end
