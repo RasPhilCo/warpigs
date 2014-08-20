@@ -1,0 +1,1 @@
+json.extract! war, :id, :name, :begin_at, :end_at
