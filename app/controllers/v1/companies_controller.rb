@@ -4,5 +4,9 @@ module V1
     def index
       @companies = Company.all
     end
+
+    def show
+      @company = Company.find(params[:id])
+    end
   end
 end
