@@ -9,7 +9,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :commonname
       t.string :gender
       t.string :ethnicity
-      t.reference :country, index: true
+      t.references :country, index: true
 
       t.timestamps
     end

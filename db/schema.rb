@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(version: 20140820042311) do
     t.string   "commonname"
     t.string   "gender"
     t.string   "ethnicity"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "country_id"
   end
 
   add_index "people", ["commonname"], name: "index_people_on_commonname", using: :btree
